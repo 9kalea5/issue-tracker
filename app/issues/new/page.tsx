@@ -15,6 +15,7 @@ interface IssueForm {
 }
 
 const NewIssuePage = () => {
+  const router =  useRouter()
   const { register, control, handleSubmit } = useForm<IssueForm>();
 
   return (
@@ -22,6 +23,7 @@ const NewIssuePage = () => {
       className='max-w-xl space-y-3'
       onSubmit={handleSubmit(async(data) => {
         await axios.post('/api/issues', data)
+        router.push('/issues')
       })}
     >
       <TextField.Root
