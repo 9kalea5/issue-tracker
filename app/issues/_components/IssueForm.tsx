@@ -13,6 +13,7 @@ import { createIssueSchema } from '@/app/validationSchema';
 import { z } from 'zod'
 import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
+import { Issue } from '@prisma/client';
 
 const SimpleMDE = dynamic(
   () => import ('react-simplemde-editor'),
@@ -20,7 +21,7 @@ const SimpleMDE = dynamic(
 
 type IssueFormData = z.infer<typeof createIssueSchema>
 
-const IssueForm = () => {
+const IssueForm = ({ issue }: { issue?: Issue }) => {
   const router =  useRouter()
   const { register, control, handleSubmit, formState: { errors } } = useForm<IssueFormData>({
     resolver: zodResolver(createIssueSchema)
@@ -46,8 +47,8 @@ const IssueForm = () => {
           }
         })}
       >
-        <TextField.Root
-          placeholder="Enter title"
+        <TextField.Root defaultValue={issue?.title}
+          placeholder="Title"
           {...register("title")} 
         >
           <TextField.Slot>
@@ -61,6 +62,7 @@ const IssueForm = () => {
         <Controller
           name='description'
           control={control}
+          defaultValue={issue?.description}
           render={({ field }) => (
             <SimpleMDE placeholder='Description' {...field} />
           )}
