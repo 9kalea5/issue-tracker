@@ -22,14 +22,7 @@ const IssueDetailPage = async ({ params }: Props) => {
     return (
         <Grid columns={{ initial: "1" ,md: "2"}} gap="5">
             <Box>
-            <Heading>{issue.title}</Heading>
-            <Flex className='space-x-3' my="2">
-                <IssueStatusBadge status={issue.status}/>
-                <Text>{issue.createdAt.toDateString()}</Text>
-             </Flex>
-             <Card className='porse' mt="4">
-                <ReactMarkdown>{issue.description}</ReactMarkdown>
-             </Card>
+                
             </Box>
             <Box>
                 <EditIssueButton issueId={issue.id} />
