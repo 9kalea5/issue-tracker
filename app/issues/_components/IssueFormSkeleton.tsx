@@ -7,8 +7,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const IssueFormSkeleton = () => {
   return (
     <Box className='max-w-xl'>
-      <Skeleton height="2rem"/>
-      <Skeleton height="20rem"/>
+      <Skeleton height="2rem" width="100%"/>
+      <Skeleton height="20rem" width="100%"/>
     </Box>
   )
 }
