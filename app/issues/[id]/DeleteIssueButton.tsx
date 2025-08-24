@@ -42,6 +42,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
       <AlertDialog.Content>
         <AlertDialog.Title>Error</AlertDialog.Title>
         <AlertDialog.Description>This issue could not be deleted</AlertDialog.Description>
+        <Button color='gold' variant='soft'>Ok</Button>
       </AlertDialog.Content>
     </AlertDialog.Root>
     </>
